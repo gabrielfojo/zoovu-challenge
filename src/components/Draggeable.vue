@@ -7,11 +7,10 @@
     @dragleave.prevent="dragleave"
     :id="'box' + boxID"
     :class="{ 'border-yellow-400 ': effect }"
-
   >
     <div
       v-if="box.length"
-      class="w-40 bg-white-400 border-2 h-40  flex"
+      class="w-40 bg-white-400 border-2 h-40 block flex"
       draggable="true"
       @dragstart="$emit('startDrag', $event, this.box[0])"
       @dragover.prevent
@@ -43,7 +42,7 @@ export default {
       this.effect = false;
     },
     drop($event, boxID) {
-      $event.preventDefault();
+       $event.preventDefault();
       this.effect = false;
       this.$emit("onDrop", $event, this.boxID);
     },

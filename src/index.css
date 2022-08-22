@@ -1,0 +1,29 @@
+/*! @import */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: rgba(245, 245, 245, 0.966);
+}
+
+.zoovu_color {
+  color: #3b0e73;
+}
+
+.zoovu_color_secondary {
+  color: #e6007d;
+}
+
+.zoovu_bg {
+  background-color: #3b0e73;
+}
+
+.zoovu_bg_secondary {
+  background-color: #e6007d;
+}
+
+h1 {
+  font-size: 18px;
+  font-weight: 900;
+}

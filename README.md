@@ -1,13 +1,19 @@
-# Zoovu Challenge 
+# Zoovu Code Challenge
 
-This is the Challenge for zoovu.com. Its a little drag and drop game, the idea is to put the letters in order to form the Zoovu logo. If there is a time record, the value will be stored in localstore. 
+## Running the app
 
-## Vue 3 + Vite
+> If you have not a http server you could install one globally with npm
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+`npm i -g live-server`
 
-> Node 14+ is required for Vite
+> Now you can run your own server over the dist folder
 
-## Recommended IDE Setup
+`live-server dist`
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar)
+## Regarding the app
+
+This is a Vue3 + Vite app
+
+`npm run install`
+
+`npm run dev`

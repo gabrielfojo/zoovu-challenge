@@ -8,7 +8,7 @@
     />
 
     <div v-if="showSplash === false">
-      <div class="flex flex-col ">
+      <div class="flex flex-col mt-40 bg-gray-100">
         <div class="grid grid-cols-2 gap-4">
           <div class="text-left">
             <h1>Good Luck, {{ userName }}!</h1>
@@ -32,10 +32,11 @@
             :items="items"
             @startDrag="startDrag"
             @onDrop="onDrop"
-            :transfer-data="{}"
           ></draggeable>
         </div>
+
         <!-- Boxes -->
+
         <div class="grid grid-cols-5 gap-4 m-10">
           <draggeable
             v-for="n in [5, 6, 7, 8, 9]"
@@ -77,7 +78,6 @@ export default {
     return {
       userName: "",
       showSplash: true,
-       dragging: 'no dragging',
       record: null,
       modal: {
         show: false,
@@ -175,15 +175,18 @@ export default {
         console.log("Empty the box first!!");
       }
     },
-    finish(msg = "Great!! you made it in " + this.score + " secs") {
+    finish(msg = `Great!! you made it in ${this.score} secs`) {
       // Check record
-      if (this.record === null || this.record > this.score) {
+      const isNull = (value) => typeof value === "object" && !value;
+
+      if (isNull(this.record) || this.record > this.score) {
         localStorage.setItem("record", this.score);
+        this.record = this.score;
         msg = `Super!! this is a new Record!!`;
       }
 
       this.modal.msg = `<p class="pb-2">${msg}</p>
-        <span class="text-grey-200 text-xs italic ">Click to restart</span>
+        <span class="text-white text-xs italic ">Click to restart</span>
       `;
       this.modal.show = true;
       clearInterval(this.timer.handler);
@@ -192,7 +195,7 @@ export default {
     init() {
       this.timer.count = 0;
       this.timer.extra = 0;
-      this.timer.handle = null;
+      this.timer.handler = null;
       this.modal.show = false;
 
       // Lets Shuffle those pieces!
